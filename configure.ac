@@ -30,7 +30,7 @@ PKG_PROG_PKG_CONFIG
 # Check for KDL support
 PKG_CONFIG_PATH=$with_kdl_dir/lib/pkgconfig:$PKG_CONFIG_PATH
 
-PKG_CHECK_MODULES([KDL], [orocos-kdl >= 0.99], [DO_HAVE_KDL=1], DO_HAVE_KDL=0; AC_MSG_WARN([KDL not found. Will build without KDL support]))
+PKG_CHECK_MODULES([KDL], [orocos-kdl >= 0.99])
 
 echo KDL_CXXFLAGS:  $KDL_CXXFLAGS
 echo KDL_CFLAGS:    $KDL_CFLAGS
@@ -40,6 +40,25 @@ echo KDL_CPPFLAGS:  $KDL_CPPFLAGS
 AM_CONDITIONAL([HAVE_KDL], [test $DO_HAVE_KDL = 1])
 
 LD_LIBRARY_PATH=$with_kdl_dir/lib:$LD_LIBRARY_PATH
+
+# Check for Qt moc utility 
+AC_PATH_PROG(ac_moc, moc, no)
+if test "x$ac_moc" = "xno"; then
+    AC_MSG_ERROR([moc $ac_errmsg])
+fi
+
+echo Found moc: $ac_moc
+
+PKG_PROG_PKG_CONFIG
+
+PKG_CHECK_MODULES(QTCORE, QtCore)
+PKG_CHECK_MODULES(QTGUI, QtGui)
+PKG_CHECK_MODULES(QTGL, QtOpenGl)
+
+LIBS="$QTCORE_LIBS $QTGUI_LIBS $QTGL_LIBS $LIBS"
+CFLAGS="$QTCORE_CFLAGS $QTGUI_CFLAGS $QTGL_CFLAGS $CFLAGS"
+CXXFLAGS="$QTCORE_CFLAGS $QTGUI_CFLAGS $QTGL_CXXFLAGS $CXXFLAGS"
+CPPFLAGS="$QTCORE_CPPFLAGS $QTGUI_CPPFLAGS $QTGL_CPPFLAGS $CPPFLAGS"
 
 
 # And finally output the results
