@@ -1,4 +1,4 @@
-AC_INIT([cbf], [0.1], [nst@techfak.uni-bielefeld.de])
+AC_INIT([kdl_chain_viz], [0.1], [fschmidt@techfak.uni-bielefeld.de])
 AM_INIT_AUTOMAKE([-Wall foreign])
 
 AC_CONFIG_MACRO_DIR([m4])
