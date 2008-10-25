@@ -2,16 +2,16 @@
 #define TEST_TIMER_HH
 
 #include <QTimer>
-#include "kdl_chain_viz.h"
+#include "qkdlchainwidget.h"
 
 class TestTimer : public QTimer
 {
 	Q_OBJECT
 
-	KDLChainVisualizerWidget *viz;
+	KDLView::QKDLChainWidget *viz;
 
 public:
-	TestTimer(KDLChainVisualizerWidget *viz);
+	TestTimer(KDLView::QKDLChainWidget *viz);
 
 public slots:
 	void do_tha_thang();

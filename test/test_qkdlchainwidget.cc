@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.1, 0, 0.1))));
 	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotX), KDL::Frame(KDL::Vector(0.1, 0.1, 0))));
 
-	QKDLChainWidget w(chain);
+	KDLView::QKDLChainWidget w(chain.get());
 
 	w.pose()[0] = 2.0;
 	w.pose()[1] = 0.1;
