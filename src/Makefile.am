@@ -1,18 +1,29 @@
-lib_LTLIBRARIES = libkdl_chain_viz.la
+lib_LTLIBRARIES = \
+  libkdlchainview.la \
+  libqkdlchainwidget.la
 
-libkdl_chain_viz_la_SOURCES = \
-  kdl_chain_viz.cc
+libkdlchainview_la_SOURCES = \
+  kdlchainview.cc
 
 include_HEADERS = \
-  kdl_chain_viz.h
+  kdlchainview.h
 
-nodist_libkdl_chain_viz_la_SOURCES = \
-  kdl_chain_viz.moc.cc
+
+if HAVE_QT
+libqkdlchainwidget_la_SOURCES = \
+  qkdlchainwidget.cc
+
+include_HEADERS = \
+  qkdlchainwidget.h
+
+nodist_libqkdlchainwidget_la_SOURCES = \
+  qkdlchainwidget.moc.cc
+
 
 %.moc.cc: %.h
 	@ac_moc@ -o $@ $<
 
 clean-local:
 	rm -f *.moc.cc
-
+endif
 

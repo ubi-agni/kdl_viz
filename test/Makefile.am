@@ -1,10 +1,13 @@
-bin_PROGRAMS = test_kdl_chain_viz
+bin_PROGRAMS = 
 
-test_kdl_chain_viz_SOURCES = test_kdl_chain_viz.cc test_timer.cc
-test_kdl_chain_viz_CPPFLAGS = -I ../src $(AM_CPPFLAGS)
-test_kdl_chain_viz_LDADD = ..//src/libkdl_chain_viz.la $(AM_LIBS)
+if HAVE_QT
+bin_PROGRAMS += test_qkdlchainwidget
 
-nodist_test_kdl_chain_viz_SOURCES = test_timer.moc.cc
+test_qkdlchainwidget_SOURCES = test_qkdlchainwidget.cc test_timer.cc
+test_qkdlchainwidget_CPPFLAGS = -I ../src $(AM_CPPFLAGS)
+test_qkdlchainwidget_LDADD = ..//src/libqkdlchainwidget.la $(AM_LIBS)
+
+nodist_test_qkdlchainwidget_SOURCES = test_timer.moc.cc
 
 include_HEADERS = \
   test_timer.h
@@ -14,5 +17,5 @@ include_HEADERS = \
 
 clean-local:
 	rm -f *.moc.cc
-
+endif
 
