@@ -6,6 +6,9 @@ test_kdl_chain_viz_LDADD = ..//src/libkdl_chain_viz.la $(AM_LIBS)
 
 nodist_test_kdl_chain_viz_SOURCES = test_timer.moc.cc
 
+include_HEADERS = \
+  test_timer.h
+
 %.moc.cc: %.h
 	@ac_moc@ -o $@ $<
 
