@@ -1,6 +1,6 @@
-#include "kdlchainvew.h"
+#include "kdlchainview.h"
 
-#include <gl/GL.h>
+#include <GL/gl.h>
 
 namespace KDLView {
 	void draw_chain(const KDL::Chain &chain, const std::vector<double> &pose) {

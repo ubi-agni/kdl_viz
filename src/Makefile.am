@@ -1,6 +1,5 @@
 lib_LTLIBRARIES = \
-  libkdlchainview.la \
-  libqkdlchainwidget.la
+  libkdlchainview.la
 
 libkdlchainview_la_SOURCES = \
   kdlchainview.cc
@@ -10,10 +9,13 @@ include_HEADERS = \
 
 
 if HAVE_QT
+lib_LTLIBRARIES += \
+  libqkdlchainwidget.la
+
 libqkdlchainwidget_la_SOURCES = \
   qkdlchainwidget.cc
 
-include_HEADERS = \
+include_HEADERS += \
   qkdlchainwidget.h
 
 nodist_libqkdlchainwidget_la_SOURCES = \
