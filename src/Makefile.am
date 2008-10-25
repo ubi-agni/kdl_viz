@@ -7,6 +7,9 @@ libkdlchainview_la_SOURCES = \
 include_HEADERS = \
   kdlchainview.h
 
+libkdlchainview_la_LDFLAGS = $(GL_LIBS) $(AM_LIBS)
+
+libkdlchainview_la_CFLAGS = $(GL_CFLAGS) $(AM_CFLAGS)
 
 if HAVE_QT
 lib_LTLIBRARIES += \
