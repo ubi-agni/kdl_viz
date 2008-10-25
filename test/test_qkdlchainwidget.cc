@@ -1,4 +1,4 @@
-#include "qkdlchainwidget.h"
+#include "qkdlchainview.h"
 
 #include <QApplication>
 #include <QTimer>
@@ -13,7 +13,7 @@
 int main(int argc, char **argv) {
 	QApplication app(argc, argv);
 
-	ChainPtr chain(new KDL::Chain);
+	KDL::Chain *chain = new KDL::Chain;
 
 	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotZ), KDL::Frame(KDL::Vector(0.1, 0.1, 0.1))));
 	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.1, 0.1, 0))));
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.1, 0, 0.1))));
 	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotX), KDL::Frame(KDL::Vector(0.1, 0.1, 0))));
 
-	KDLView::QKDLChainWidget w(chain.get());
+	KDLCV::QKDLChainView w(chain);
 
 	w.pose()[0] = 2.0;
 	w.pose()[1] = 0.1;
@@ -43,5 +43,6 @@ int main(int argc, char **argv) {
 	timer.start();
 
 	app.exec();
+	delete chain;
 }
 

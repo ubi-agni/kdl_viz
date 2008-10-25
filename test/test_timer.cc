@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-TestTimer::TestTimer(KDLView::QKDLChainWidget *viz) :
+TestTimer::TestTimer(KDLCV::QKDLChainView *viz) :
 	viz(viz)
 {
 

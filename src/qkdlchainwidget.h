@@ -2,16 +2,13 @@
 #define QKDL_CHAIN_VIZ_HH
 
 #include <QGLWidget>
+#include <QObject>
 
 #include <kdl/chain.hpp>
 
-#include <boost/shared_ptr.hpp>
-
 #include "kdlchainview.h"
 
-typedef boost::shared_ptr<KDL::Chain> ChainPtr;
-
-namespace KDLView {
+namespace KDLCV {
 	/**
 		A class which provides a Qt wrapper around KDLChainViewer. It is subclassed from 
 		QGLWidget so it can be used as a drop in replacement..

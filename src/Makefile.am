@@ -2,35 +2,41 @@ lib_LTLIBRARIES = \
   libkdlchainview.la
 
 libkdlchainview_la_SOURCES = \
-  kdlchainview.cc
+  kdlchainview.cc \
+  kdlchainview.h
 
 include_HEADERS = \
   kdlchainview.h
 
-libkdlchainview_la_LDFLAGS = $(GL_LIBS) $(AM_LIBS)
+libkdlchainview_la_LDFLAGS = $(GL_LIBS) $(KDL_LIBS) $(AM_LIBS)
 
-libkdlchainview_la_CXXFLAGS = $(GL_CFLAGS) $(AM_CXXFLAGS)
+libkdlchainview_la_CXXFLAGS = $(GL_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS)
+
+libkdlchainview_la_CPPFLAGS = $(GL_CPPFLAGS) $(KDL_CPPFLAGS) $(AM_CPPFLAGS)
 
 if HAVE_QT
 lib_LTLIBRARIES += \
-  libqkdlchainwidget.la
+  libqkdlchainview.la
 
-libqkdlchainwidget_la_SOURCES = \
-  qkdlchainwidget.cc
+libqkdlchainview_la_SOURCES = \
+  qkdlchainwidget.cc \
+  qkdlchainwidget.h \
+  qkdlchainview.cc \
+  qkdlchainview.h
 
-libqkdlchainwidget_la_CXXFLAGS = $(QT_CFLAGS) $(AM_CXXFLAGS)
+libqkdlchainview_la_CXXFLAGS = $(QT_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS)
 
-libqkdlchainwidget_la_LDFLAGS = $(QT_LDFLAGS) $(AM_LDFLAGS)
+libqkdlchainview_la_LDFLAGS = $(QT_LDFLAGS) $(KDL_LDFLAGS) $(AM_LDFLAGS)
 
-libqkdlchainwidget_la_LIBADD = libkdlchainview.la
+libqkdlchainview_la_LIBADD = libkdlchainview.la
 
 include_HEADERS += \
-  qkdlchainwidget.h
+  qkdlchainwidget.h \
+  qkdlchainview.h
 
-nodist_libqkdlchainwidget_la_SOURCES = \
-  qkdlchainwidget.moc.cc
-
-
+nodist_libqkdlchainview_la_SOURCES = \
+  qkdlchainwidget.moc.cc \
+  qkdlchainview.moc.cc
 
 
 %.moc.cc: %.h

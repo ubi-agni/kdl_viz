@@ -3,5 +3,5 @@
 #include "kdlchainview.h"
 
 
-namespace KDLVC {
+namespace KDLCV {
 } // namespace

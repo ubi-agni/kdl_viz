@@ -48,12 +48,10 @@ PKG_CHECK_MODULES([KDL], [orocos-kdl >= 0.99])
 #echo KDL_LIBS:      $KDL_LIBS
 #echo KDL_CPPFLAGS:  $KDL_CPPFLAGS
 
-CXXFLAGS="$KDL_CFLAGS $CXXFLAGS"
-CFLAGS="$KDL_CFLAGS $CFLAGS"
-CPPFLAGS="$KDL_CPPFLAGS $CPPFLAGS"
-LIBS="$KDL_LIBS $LIBS"
-
-#LD_LIBRARY_PATH=$with_kdl_dir/lib:$LD_LIBRARY_PATH
+#CXXFLAGS="$KDL_CFLAGS $CXXFLAGS"
+#CFLAGS="$KDL_CFLAGS $CFLAGS"
+#CPPFLAGS="$KDL_CPPFLAGS $CPPFLAGS"
+#LIBS="$KDL_LIBS $LIBS"
 
 PKG_CONFIG_PATH=$with_qt_dir/lib/pkgconfig:$PKG_CONFIG_PATH
 
@@ -71,8 +69,25 @@ if test $DO_HAVE_QT = 1; then
 	AC_SUBST(ac_moc)
 
 	echo Found moc: $ac_moc
+
+#	AX_CREATE_PKGCONFIG_INFO(
+#		libqkdlchainwidget.pc,
+#		orocos-kdl >= 99 QtCore QtGui QtOpenGL,
+#		[-lqkdlchainwidget],
+#		[A Qt widget for visualizing a KDL::Chain],
+#		[],
+#		[]
+#	)
 fi
 
+#AX_CREATE_PKGCONFIG_INFO(
+#	libkdlchainview.pc,
+#	orocos-kdl >= 99 QtCore QtGui QtOpenGL,
+#	[-L${libdir} -lkdlchainview],
+#	[A class to visualize a KDL::Chain],
+#	[-I${includedir}],
+#	[-L${libdir} -lkdlchainview]
+#)
 
 
 # And finally output the results
