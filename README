@@ -1,0 +1,9 @@
+a simple visualization lib for KDL::Chains..
+
+do
+
+make doc
+
+and point your browser to doc/html/index.html
+
+
