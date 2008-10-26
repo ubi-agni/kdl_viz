@@ -1,18 +1,29 @@
 #ifndef TEST_TIMER_HH
 #define TEST_TIMER_HH
 
-#include <QTimer>
+#include <QObject>
+
 #include "qkdlchainview.h"
 
-#include <kdl/chainiksolvervel_pinv.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/vector.hpp>
 
-class TestTimer : public QTimer
+#include <kdl/chainfksolverpos_recursive.hpp>
+#include <kdl/chainiksolvervel_pinv.hpp>
+#include <kdl/chainjnttojacsolver.hpp>
+#include <kdl/jntarray.hpp>
+#include <kdl/jacobian.hpp>
+
+using namespace boost::numeric;
+
+class TestTimer : public QObject
 {
 	Q_OBJECT
 
 	KDLCV::QKDLChainView *m_View;
 
-	KDL::ChainIkSolverVel_pinv m_Solver;
+	KDL::ChainIkSolverVel_pinv m_IkSolver;
+	KDL::ChainFkSolverPos_recursive m_FkSolver;
 
 public:
 	TestTimer(KDLCV::QKDLChainView *view);
