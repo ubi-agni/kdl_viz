@@ -2,6 +2,8 @@
 #define KDL_CHAIN_VIZ_HH
 
 #include <kdl/chain.hpp>
+#include <kdl/joint.hpp>
+
 #include <GL/gl.h>
 
 namespace KDLCV {
@@ -34,6 +36,27 @@ namespace KDLCV {
 		void draw_chain(ChainPtrType chain, const PoseArrayType &pose) {
 			glPushMatrix();
 
+			glLineWidth(3);
+
+			// draw a coordinate system,
+			glColor3f(1,0,0);
+			glBegin(GL_LINES);
+				glVertex3f(0,0,0);
+				glVertex3f(1,0,0);
+			glEnd();
+
+			glColor3f(0,1,0);
+			glBegin(GL_LINES);
+				glVertex3f(0,0,0);
+				glVertex3f(0,1,0);
+			glEnd();
+
+			glColor3f(0,0,1);
+			glBegin(GL_LINES);
+				glVertex3f(0,0,0);
+				glVertex3f(0,0,1);
+			glEnd();
+
 			for (unsigned int segment = 0; segment < chain->getNrOfSegments(); ++segment) {
 				// std::cout << "segment " << segment << std::endl;
 
@@ -43,15 +66,40 @@ namespace KDLCV {
 				for (unsigned int i = 0; i < 16; ++i) pose_matrix[i] = pose_frame(i % 4, i / 4);
 
 
-				glColor3f(1,1,1);
-
 				// draw a line from current origin to pose which is specified by
 				// the translational part of the matrix	
+				glColor3f(1,1,1);
+
 				glBegin(GL_LINES);
 					glVertex3f(0,0,0);
 					glVertex3f(pose_matrix[12], pose_matrix[13], pose_matrix[14]);
 				glEnd();
 
+				// draw a line representing the rotation axis
+				switch(chain->getSegment(segment).getJoint().getType())
+				{
+					case KDL::Joint::RotX:
+						glColor3f(0,1,1);
+						glBegin(GL_LINES);
+							glVertex3f(0,0,0);
+							glVertex3f(0.1, 0, 0);
+						glEnd();
+					break;
+					case KDL::Joint::RotY:
+						glColor3f(1,0,1);
+						glBegin(GL_LINES);
+							glVertex3f(0,0,0);
+							glVertex3f(0, 0.1, 0);
+						glEnd();
+					break;
+					case KDL::Joint::RotZ:
+						glColor3f(1,1,0);
+						glBegin(GL_LINES);
+							glVertex3f(0,0,0);
+							glVertex3f(0, 0, 0.1);
+						glEnd();
+					break;
+				}
 		#if 0
 				KDL::Frame pose_frame = chain->getSegment(segment).pose(0.3);
 

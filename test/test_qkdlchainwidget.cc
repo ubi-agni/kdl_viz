@@ -15,22 +15,15 @@ int main(int argc, char **argv) {
 
 	KDL::Chain *chain = new KDL::Chain;
 
-	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotZ), KDL::Frame(KDL::Vector(0.1, 0.1, 0.1))));
-	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.1, 0.1, 0))));
-	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotX), KDL::Frame(KDL::Vector(0.1, 0, 0.1))));
-	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotZ), KDL::Frame(KDL::Vector(0.1, 0.1, 0))));
-	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.1, 0, 0.1))));
-	chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotX), KDL::Frame(KDL::Vector(0.1, 0.1, 0))));
-
+	for (int i = 0; i < 30; ++i) {
+		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotX), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
+		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
+	}
 	KDLCV::QKDLChainView w(chain);
 
-	w.pose()[0] = 2.0;
-	w.pose()[1] = 0.1;
-	w.pose()[2] = 0.1;
-	w.pose()[3] = 0.1;
-	w.pose()[4] = 0.1;
-	w.pose()[5] = 0.1;
-
+	for (unsigned int i = 0; i < w.pose().size(); ++i) {
+		w.pose()[i] = 0.1;
+	}
 	w.show();
 
 	QTimer timer;

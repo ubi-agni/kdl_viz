@@ -65,6 +65,7 @@ AM_CONDITIONAL([HAVE_QT], [test $DO_HAVE_QT=1])
 #CPPFLAGS="$QT_CPPFLAGS $CPPFLAGS"
 
 if test $DO_HAVE_QT = 1; then
+	AX_CHECK_GLU
 	ac_moc=`$PKG_CONFIG --variable moc_location QtCore`
 	AC_SUBST(ac_moc)
 

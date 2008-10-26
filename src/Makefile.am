@@ -24,9 +24,9 @@ libqkdlchainview_la_SOURCES = \
   qkdlchainview.cc \
   qkdlchainview.h
 
-libqkdlchainview_la_CXXFLAGS = $(QT_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS)
+libqkdlchainview_la_CXXFLAGS = $(QT_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS) $(GLU_CFLAGS)
 
-libqkdlchainview_la_LDFLAGS = $(QT_LDFLAGS) $(KDL_LDFLAGS) $(AM_LDFLAGS)
+libqkdlchainview_la_LDFLAGS = $(QT_LDFLAGS) $(KDL_LDFLAGS) $(AM_LDFLAGS) $(GLU_LIBS)
 
 libqkdlchainview_la_LIBADD = libkdlchainview.la
 

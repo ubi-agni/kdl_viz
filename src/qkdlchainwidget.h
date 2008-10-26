@@ -4,6 +4,8 @@
 #include <QGLWidget>
 #include <QObject>
 
+#include <iostream>
+
 #include <kdl/chain.hpp>
 
 #include "kdlchainview.h"
@@ -19,6 +21,7 @@ namespace KDLCV {
 	{
 		Q_OBJECT
 
+	protected:
 		KDL::Chain *m_Chain;
 		std::vector<double> m_Pose;
 
@@ -37,9 +40,11 @@ namespace KDLCV {
 			Reimplemented from QGLWidget. The user normally doesn't need
 			to worry about this method
 		*/
-		virtual void resizeGL() 
+		virtual void resizeGL(int width, int height) 
 		{
-			glViewport(0, 0, (GLint)width(), (GLint)height());
+			std::cout << "resize" << std::endl;
+			
+			glViewport(0, 0, (GLint)width, (GLint)height);
 		}
 
 		/**
@@ -49,7 +54,6 @@ namespace KDLCV {
 		virtual void paintGL()
 		{
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glLoadIdentity();
 
 			draw_chain(m_Chain, m_Pose);
 		}
@@ -71,6 +75,11 @@ namespace KDLCV {
 		virtual std::vector<double> &pose()
 		{
 			return m_Pose;
+		}
+
+		virtual KDL::Chain* chain()
+		{
+			return m_Chain;
 		}
 	};
 } // namespace 
