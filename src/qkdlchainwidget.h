@@ -25,7 +25,11 @@ namespace KDLCV {
 		KDL::Chain *m_Chain;
 		std::vector<double> m_Pose;
 
-	public:	
+	public:
+		/**
+			The instance of chain is not owned by QKDLChainWidget. It will not be destroyed in the
+			destructor.
+		*/
 		QKDLChainWidget(KDL::Chain* chain, QWidget *parent = 0)  :
 			QGLWidget(parent),
 			m_Chain(chain),

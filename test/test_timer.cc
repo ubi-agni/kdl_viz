@@ -26,11 +26,13 @@ void TestTimer::do_tha_thang() {
 
 	KDL::Twist twist;
 	twist(0) = 0.1;
+	twist(1) = 0.1;
+	twist(2) = 0.1;
 
 	m_Solver.CartToJnt(array_in, twist, array_out);
 
 	for (unsigned int i = 0; i < m_View->pose().size(); ++i) 
-		m_View->pose()[i] -= array_out(i);
+		m_View->pose()[i] += array_out(i);
 
 	m_View->update();
 }

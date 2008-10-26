@@ -14,6 +14,11 @@
 
 
 namespace KDLCV {
+	/**
+		A widget that provides some navigation functionality.. Press left mouse button
+		and drag to rotate the scene around the up and right axes. Use the mouse wheel 
+		to zoom in and out..
+	*/
 	struct QKDLChainView : public QKDLChainWidget
 	{
 		Q_OBJECT
