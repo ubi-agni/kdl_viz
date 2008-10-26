@@ -55,7 +55,7 @@ PKG_CHECK_MODULES([KDL], [orocos-kdl >= 0.99])
 
 PKG_CONFIG_PATH=$with_qt_dir/lib/pkgconfig:$PKG_CONFIG_PATH
 
-PKG_CHECK_MODULES(QT, QtCore QtGui QtOpenGL, [DO_HAVE_QT=1;], AC_MSG_NOTICE([Qt4 not found... Not building Qt widget]); DO_HAVE_QT=0;)
+PKG_CHECK_MODULES(QT, QtCore QtGui QtOpenGL, [DO_HAVE_QT=1;], AC_MSG_NOTICE([Qt4 not found... Not building Qt widgets]); DO_HAVE_QT=0;)
 
 AM_CONDITIONAL([HAVE_QT], [test $DO_HAVE_QT=1])
 
