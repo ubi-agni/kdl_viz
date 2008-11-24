@@ -1,11 +1,19 @@
 - A simple visualization lib for KDL::Chains..
 
+This library provides 
+
+a] code for rendering a KDL chain vizualization into an existing OpenGL context
+b] a class derived from QGLWidget to drop the visualization into an existing 
+   Qt app
+c] a class derived from the previous class that offers some rudimentary navigation
+   to be able to change the view, etc. 
+
 - Requirements
 
 KDL [a relatively recent version is required [SVN at Nov. 24, 2008]
 Qt [Version 4 or greater with OpenGL support]
 
-Qt is only required if you want to build the QKDLChainViewWidget
+Qt is only required if you want to build the QKDLChainView or QKDLChainWidget
 
 - Installation
 
@@ -16,11 +24,11 @@ make install
 
 - Documentation
 
-do
+If you have doxygen installed you can simply do
 
 make doc
 
-and point your browser to doc/html/index.html
+and then point your browser to ./doc/html/index.html
 
 - Comments, Patches, etc..
 
@@ -29,3 +37,4 @@ Send to Florian Schmidt (fschmidt@techfak.uni-bielefeld.de)
 - Author
 
 Florian Paul Schmidt (fschmidt@techfak.uni-bielefeld.de)
+
