@@ -1,4 +1,20 @@
-a simple visualization lib for KDL::Chains..
+- A simple visualization lib for KDL::Chains..
+
+- Requirements
+
+KDL [a relatively recent version is required [SVN at Nov. 24, 2008]
+Qt [Version 4 or greater with OpenGL support]
+
+Qt is only required if you want to build the QKDLChainViewWidget
+
+- Installation
+
+./bootstrap.sh
+./configure [your options here, see ./configure --help]
+make 
+make install
+
+- Documentation
 
 do
 
@@ -6,4 +22,10 @@ make doc
 
 and point your browser to doc/html/index.html
 
+- Comments, Patches, etc..
 
+Send to Florian Schmidt (fschmidt@techfak.uni-bielefeld.de)
+
+- Author
+
+Florian Paul Schmidt (fschmidt@techfak.uni-bielefeld.de)
