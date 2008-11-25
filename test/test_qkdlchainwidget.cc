@@ -15,9 +15,10 @@ int main(int argc, char **argv) {
 
 	KDL::Chain *chain = new KDL::Chain;
 
-	for (int i = 0; i < 100; ++i) {
+	for (int i = 0; i < 3; ++i) {
 		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotX), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
 		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
+		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotZ), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
 	}
 	KDLCV::QKDLChainView w(chain);
 
