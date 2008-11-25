@@ -9,7 +9,6 @@
 
 #include "test_timer.h"
 
-
 int main(int argc, char **argv) {
 	QApplication app(argc, argv);
 
@@ -20,10 +19,13 @@ int main(int argc, char **argv) {
 		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotY), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
 		chain->addSegment(KDL::Segment(KDL::Joint(KDL::Joint::RotZ), KDL::Frame(KDL::Vector(0.0, 0.0, 0.3))));
 	}
+
+	// std::cout << dump_kdl_chain_to_string(*chain) << std::endl;
+
 	KDLCV::QKDLChainView w(chain);
 
 	for (unsigned int i = 0; i < w.pose().size(); ++i) {
-		w.pose()[i] = 0.1;
+		w.pose()[i] = 0.01 * i;
 	}
 	w.show();
 

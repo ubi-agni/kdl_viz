@@ -6,7 +6,7 @@
 
 #include <GL/gl.h>
 
-#include <iostream>
+//#include <iostream>
 
 namespace KDLCV {
 	/**
@@ -60,7 +60,7 @@ namespace KDLCV {
 			glEnd();
 
 			for (unsigned int segment = 0; segment < chain->getNrOfSegments(); ++segment) {
-				std::cout << "segment " << segment << std::endl;
+				//std::cout << "segment " << segment << std::endl;
 
 				KDL::Frame pose_frame = chain->getSegment(segment).pose(pose[segment]);
 
