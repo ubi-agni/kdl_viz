@@ -66,10 +66,13 @@ void TestTimer::do_tha_thang() {
 	m_IkSolver.CartToJnt(array_in, twist, array_out);
 
 	KDL::Frame fk_current_frame;
+
 	m_FkSolver.JntToCart(array_in, fk_current_frame);
 
 	KDL::Frame fk_next_frame;
+
 	KDL::JntArray array_in_and_out = array_in;
+
 	for (unsigned int i = 0; i < m_View->pose().size(); ++i)
 		array_in_and_out(i) = array_in(i) + array_out(i);
 	
@@ -80,8 +83,10 @@ void TestTimer::do_tha_thang() {
 	if ((fk_next_frame.p - (fk_current_frame.p+KDL::Vector(0.05,0.05,0.05))).Norm() > KDL::Vector(0.05,0.05,0.05).Norm() )
 	{
 		//std::cout << (fk_next_frame.p.x() - fk_current_frame.p.x()) << " " << fk_next_frame.p.y() << " " << fk_next_frame.p.z() << std::endl; 
+
 		for (unsigned int i = 0; i < m_View->pose().size(); ++i)
 			array_out(i) *= 0.01/(1.0+(fk_next_frame.p - (fk_current_frame.p + KDL::Vector(0.05,0.05,0.05))).Norm());
+
 		//array_out(i) *= KDL::Vector(0.05,0.05,0.05).Norm() / (fk_next_frame.p - fk_current_frame.p).Norm();
 	}
 
