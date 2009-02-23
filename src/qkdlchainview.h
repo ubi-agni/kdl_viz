@@ -89,12 +89,14 @@ namespace KDLCV {
 			m_AngleY = m_AngleY < -90 ? -90 : m_AngleY;
 
 			m_LastPosition = event->pos();
+			update();
 		}
 
 		void wheelEvent (QWheelEvent *event)
 		{
 			std::cout << "mouse wheel: " << event->delta() << std::endl;
 			m_Distance += (-0.001 * event->delta());
+			update();
 		}
 	};
 } // namespace

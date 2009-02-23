@@ -101,6 +101,9 @@ namespace KDLCV {
 							glVertex3f(0, 0, 0.1);
 						glEnd();
 					break;
+
+					default:
+					break;
 				}
 		#if 0
 				KDL::Frame pose_frame = chain->getSegment(segment).pose(0.3);
