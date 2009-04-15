@@ -44,7 +44,7 @@ namespace KDLCV {
 
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
-			gluPerspective(90.0, width()/height(), 0.1, 10000.0);
+			gluPerspective(90.0, ((float)width())/((float)height()), 0.1, 10000.0);
 			gluLookAt(0,m_Distance,0,0,0,0,0,0,1);
 		}
 
@@ -53,7 +53,7 @@ namespace KDLCV {
 
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
-			gluPerspective(90.0, width()/height(), 0.1, 10000.0);
+			gluPerspective(90.0, ((float)width())/((float)height()), 0.1, 10000.0);
 			gluLookAt(0,m_Distance,0,0,0,0,0,0,1);
 
 			glMatrixMode(GL_MODELVIEW);
