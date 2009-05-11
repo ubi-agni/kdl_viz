@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include <kdl/chain.hpp>
-
 #include "kdlchainview.h"
 
 namespace KDLCV {
@@ -30,61 +29,35 @@ namespace KDLCV {
 			The instance of chain is not owned by QKDLChainWidget. It will not be destroyed in the
 			destructor.
 		*/
-		QKDLChainWidget(KDL::Chain* chain, QWidget *parent = 0)  :
-			QGLWidget(parent),
-			m_Chain(chain),
-			m_Pose(m_Chain->getNrOfSegments())
-		{
+		QKDLChainWidget(KDL::Chain* chain, QWidget *parent = 0);
 
-		}
-
-		virtual ~QKDLChainWidget() { }
+		virtual ~QKDLChainWidget();
 
 		/**
 			Reimplemented from QGLWidget. The user normally doesn't need
 			to worry about this method
 		*/
-		virtual void resizeGL(int width, int height) 
-		{
-			std::cout << "resize" << std::endl;
-			
-			glViewport(0, 0, (GLint)width, (GLint)height);
-		}
+		virtual void resizeGL(int width, int height);
 
 		/**
 			Reimplemented from QGLWidget. The user normally doesn't need
 			to worry about this method
 		*/
-		virtual void paintGL()
-		{
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			draw_chain(m_Chain, m_Pose);
-		}
+		virtual void paintGL();
 
 		/**
 			Reimplemented from QGLWidget. The user normally doesn't need
 			to worry about this method
 		*/
-		virtual void initializeGL() 
-		{
-			glClearColor(0.0, 0.0, 0.0, 0.0);
-			glEnable(GL_DEPTH_TEST);
-		}
+		virtual void initializeGL();
 
 		/**
 			Reimplemented from KDLCV::KDLChainView. Use this to access the pose 
 			used to render the chain.
 		*/
-		virtual std::vector<double> &pose()
-		{
-			return m_Pose;
-		}
+		virtual std::vector<double> &pose();
 
-		virtual KDL::Chain* chain()
-		{
-			return m_Chain;
-		}
+		virtual KDL::Chain* chain();
 	};
 } // namespace 
 
