@@ -1,4 +1,4 @@
-#include "test_timer.h"
+#include "test_chain_timer.h"
 
 #include <iostream>
 #include <cmath>

@@ -43,9 +43,10 @@ PKG_CONFIG_PATH=$with_kdl_dir/lib/pkgconfig:$PKG_CONFIG_PATH
 
 PKG_CHECK_MODULES([KDL], [orocos-kdl >= 0.99])
 
-#echo KDL_CXXFLAGS:  $KDL_CXXFLAGS
+echo KDL_CXXFLAGS:  $KDL_CXXFLAGS
 #echo KDL_CFLAGS:    $KDL_CFLAGS
-#echo KDL_LIBS:      $KDL_LIBS
+KDL_LIBS="-Wl,-rpath,$with_kdl_dir/lib "$KDL_LIBS
+echo KDL_LIBS:      $KDL_LIBS
 #echo KDL_CPPFLAGS:  $KDL_CPPFLAGS
 
 #CXXFLAGS="$KDL_CFLAGS $CXXFLAGS"

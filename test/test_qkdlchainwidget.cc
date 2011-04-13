@@ -10,7 +10,7 @@
 #include <kdl/segment.hpp>
 #include <kdl/frames.hpp>
 
-#include "test_timer.h"
+#include "test_chain_timer.h"
 
 int main(int argc, char **argv) {
 	QApplication app(argc, argv);
