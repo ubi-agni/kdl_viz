@@ -29,7 +29,7 @@ namespace KDLCV {
 			m_Tree(tree),
 			m_Solver(*tree)
 		{
-			std::cout << "kdltreeview" << std::endl;
+			// std::cout << "kdltreeview" << std::endl;
 		};
 
 		TreePtrType m_Tree;

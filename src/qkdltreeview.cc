@@ -52,7 +52,7 @@ void QKDLTreeView::mouseReleaseEvent(QMouseEvent *event) {
 void QKDLTreeView::mouseMoveEvent (QMouseEvent * event) {
 	//if (event->button() != Qt::LeftButton) return;
 
-	std::cout << "mouse move: " << m_AngleX << " " << m_AngleY << std::endl;
+	// std::cout << "mouse move: " << m_AngleX << " " << m_AngleY << std::endl;
 	QPoint delta = event->pos() - m_LastPosition;
 
 	m_AngleX += 0.1 * delta.x();
@@ -68,7 +68,7 @@ void QKDLTreeView::mouseMoveEvent (QMouseEvent * event) {
 
 void QKDLTreeView::wheelEvent (QWheelEvent *event)
 {
-	std::cout << "mouse wheel: " << event->delta() << std::endl;
+	//std::cout << "mouse wheel: " << event->delta() << std::endl;
 	m_Distance += (-0.001 * event->delta());
 	update();
 }

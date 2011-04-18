@@ -12,7 +12,7 @@ QKDLTreeWidget::QKDLTreeWidget(KDL::Tree* tree, QWidget *parent)  :
 	KDLCV::KDLTreeView<KDL::Tree*, std::vector<double> >(tree),
 	m_Pose(tree->getNrOfSegments())
 {
-	std::cout << "widget" << std::endl;
+	//std::cout << "widget" << std::endl;
 }
 
 QKDLTreeWidget::~QKDLTreeWidget() { }
@@ -23,7 +23,7 @@ QKDLTreeWidget::~QKDLTreeWidget() { }
 */
 void QKDLTreeWidget::resizeGL(int width, int height) 
 {
-	std::cout << "resize" << std::endl;
+	//std::cout << "resize" << std::endl;
 	
 	glViewport(0, 0, (GLint)width, (GLint)height);
 }
@@ -34,7 +34,7 @@ void QKDLTreeWidget::resizeGL(int width, int height)
 */
 void QKDLTreeWidget::paintGL()
 {
-	std::cout << "paintGL" << std::endl;
+	//std::cout << "paintGL" << std::endl;
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	draw_tree(m_Pose);
