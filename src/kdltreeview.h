@@ -44,8 +44,8 @@ namespace KDLCV {
 			the use of this method..
 		*/
 		void draw_tree(const PoseArrayType &pose) {
-			std::cout << "fergfherlghrklt hgrskhrslkh jerkhjhwr wrhjg" << std::endl;
-			std::cout << pose.size() << std::endl;
+			// std::cout << "fergfherlghrklt hgrskhrslkh jerkhjhwr wrhjg" << std::endl;
+			// std::cout << pose.size() << std::endl;
 			glPushMatrix();
 
 			glLineWidth(3);
@@ -70,16 +70,16 @@ namespace KDLCV {
 			glEnd();
 
 			//draw_element(tree->getRootSegment(), pose);
-			std::cout << "-" << std::endl;
+			// std::cout << "-" << std::endl;
 			KDL::JntArray jnt_array(pose.size());
-			std::cout << "+" << std::endl;
+			// std::cout << "+" << std::endl;
 			for (unsigned int i = 0; i < pose.size(); ++i) jnt_array(i) = pose[i];
 
-			std::cout << "=" << std::endl;
+			//std::cout << "=" << std::endl;
 			KDL::SegmentMap segment_map = m_Tree->getSegments();
-			std::cout << "fjw afja" << std::endl;
+			//std::cout << "fjw afja" << std::endl;
 			for (KDL::SegmentMap::const_iterator it = segment_map.begin(); it != segment_map.end(); ++it) {
-				std::cout << ".... " << (*it).first << std::endl;
+				// std::cout << ".... " << (*it).first << std::endl;
 				// If we are the root, we don't draw anything
 				if ((*it).first == "root") continue; 
 				if ((*it).second.parent == m_Tree->getSegments().end()) { std::cout << "root!!!!" << std::endl; continue; }
@@ -89,11 +89,11 @@ namespace KDLCV {
 				KDL::Frame cur_pos;
 				m_Solver.JntToCart(jnt_array, cur_pos, (*it).first);
 
-				std::cout << "parent: " << (*(*it).second.parent).first << std::endl;
+				// std::cout << "parent: " << (*(*it).second.parent).first << std::endl;
 				KDL::Frame parent_pos;
 
 				m_Solver.JntToCart(jnt_array, parent_pos, (*(*it).second.parent).first);
-				std::cout << "." << std::endl;
+				// std::cout << "." << std::endl;
 
 				glColor3f(1,1,1);
 				glBegin(GL_LINES);
