@@ -79,18 +79,23 @@ namespace KDLCV {
 			KDL::SegmentMap segment_map = m_Tree->getSegments();
 			std::cout << "fjw afja" << std::endl;
 			for (KDL::SegmentMap::const_iterator it = segment_map.begin(); it != segment_map.end(); ++it) {
-				std::cout << "...." << std::endl;
+				std::cout << ".... " << (*it).first << std::endl;
 				// If we are the root, we don't draw anything
-				if ((*it).second.parent == m_Tree->getSegments().end()) continue;
+				if ((*it).first == "root") continue; 
+				if ((*it).second.parent == m_Tree->getSegments().end()) { std::cout << "root!!!!" << std::endl; continue; }
 
 				// solve for position of element and its parents position, so we
 				// can draw a line..
 				KDL::Frame cur_pos;
 				m_Solver.JntToCart(jnt_array, cur_pos, (*it).first);
 
+				std::cout << "parent: " << (*(*it).second.parent).first << std::endl;
 				KDL::Frame parent_pos;
+
 				m_Solver.JntToCart(jnt_array, parent_pos, (*(*it).second.parent).first);
 				std::cout << "." << std::endl;
+
+				glColor3f(1,1,1);
 				glBegin(GL_LINES);
 					glVertex3f(parent_pos(0,3), parent_pos(1,3), parent_pos(2,3));
 					glVertex3f(cur_pos(0,3), cur_pos(1,3), cur_pos(2,3));
