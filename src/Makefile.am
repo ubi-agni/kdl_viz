@@ -50,7 +50,7 @@ libqkdlchainview_la_SOURCES = \
 
 libqkdlchainview_la_CXXFLAGS = $(QT_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS) $(GLU_CFLAGS)
 
-libqkdlchainview_la_LDFLAGS = $(QT_LDFLAGS) $(KDL_LDFLAGS) $(AM_LDFLAGS) $(GLU_LIBS)
+libqkdlchainview_la_LDFLAGS = $(QT_LIBS) $(KDL_LDFLAGS) $(AM_LDFLAGS) $(GLU_LIBS)
 
 libqkdlchainview_la_LIBADD = libkdlchainview.la
 
@@ -76,7 +76,7 @@ libqkdltreeview_la_SOURCES = \
 
 libqkdltreeview_la_CXXFLAGS = $(QT_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS) $(GLU_CFLAGS)
 
-libqkdltreeview_la_LDFLAGS = $(QT_LDFLAGS) $(KDL_LDFLAGS) $(AM_LDFLAGS) $(GLU_LIBS)
+libqkdltreeview_la_LDFLAGS = $(QT_LIBS) $(KDL_LDFLAGS) $(AM_LDFLAGS) $(GLU_LIBS)
 
 libqkdltreeview_la_LIBADD = libkdltreeview.la
 
