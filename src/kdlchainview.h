@@ -105,12 +105,6 @@ namespace KDLCV {
 					default:
 					break;
 				}
-		#if 0
-				KDL::Frame pose_frame = chain->getSegment(segment).pose(0.3);
-
-				double pose_matrix[16];
-				for (unsigned int i = 0; i < 16; ++i) pose_matrix[i] = pose_frame(i % 4, i / 4);
-		#endif
 				glMultMatrixd(pose_matrix);
 			}
 			glPopMatrix();

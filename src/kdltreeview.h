@@ -85,7 +85,7 @@ namespace KDLCV {
 			KDL::SegmentMap segment_map = m_Tree->getSegments();
 			//std::cout << "fjw afja" << std::endl;
 			for (KDL::SegmentMap::const_iterator it = segment_map.begin(); it != segment_map.end(); ++it) {
-				std::cout << "qkdtreewidget: current: " << (*it).first << std::endl;
+				// std::cout << "qkdtreewidget: current: " << (*it).first << std::endl;
 				// If we are the root, we don't draw anything
 				if ((*it).first == "root") continue; 
 				if ((*it).second.parent == m_Tree->getSegments().end()) { std::cout << "root!!!!" << std::endl; continue; }
@@ -95,13 +95,13 @@ namespace KDLCV {
 				KDL::Frame cur_pos;
 				m_Solver.JntToCart(jnt_array, cur_pos, (*it).first);
 
-				std::cout << "qkdltreewidget: parent: " << (*(*it).second.parent).first << std::endl;
+				// std::cout << "qkdltreewidget: parent: " << (*(*it).second.parent).first << std::endl;
 				KDL::Frame parent_pos;
 
 				m_Solver.JntToCart(jnt_array, parent_pos, (*(*it).second.parent).first);
 				// std::cout << "." << std::endl;
 
-				std::cout << "qkdltreewidget, parent_pos: " << parent_pos.p(0) << " " <<  parent_pos.p(1)  << " " <<  parent_pos.p(2)  << " current_pos: " <<  cur_pos.p(0)   << " " <<  cur_pos.p(1)  << " " <<  cur_pos.p(2) << std::endl;
+				// std::cout << "qkdltreewidget, parent_pos: " << parent_pos.p(0) << " " <<  parent_pos.p(1)  << " " <<  parent_pos.p(2)  << " current_pos: " <<  cur_pos.p(0)   << " " <<  cur_pos.p(1)  << " " <<  cur_pos.p(2) << std::endl;
 
 
 				glColor3f(1,1,1);
