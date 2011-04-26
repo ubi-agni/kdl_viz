@@ -10,7 +10,7 @@ namespace KDLCV {
 QKDLChainWidget::QKDLChainWidget(KDL::Chain* chain, QWidget *parent)  :
 	QGLWidget(parent),
 	m_Chain(chain),
-	m_Pose(m_Chain->getNrOfSegments())
+	m_Pose(m_Chain->getNrOfJoints())
 {
 
 }

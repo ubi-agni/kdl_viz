@@ -10,7 +10,7 @@ namespace KDLCV {
 QKDLTreeWidget::QKDLTreeWidget(KDL::Tree* tree, QWidget *parent)  :
 	QGLWidget(parent),
 	KDLCV::KDLTreeView<KDL::Tree*, std::vector<double> >(tree),
-	m_Pose(tree->getNrOfSegments())
+	m_Pose(tree->getNrOfJoints())
 {
 	//std::cout << "widget" << std::endl;
 }
