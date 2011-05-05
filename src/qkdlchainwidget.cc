@@ -23,8 +23,6 @@ QKDLChainWidget::~QKDLChainWidget() { }
 */
 void QKDLChainWidget::resizeGL(int width, int height) 
 {
-	std::cout << "resize" << std::endl;
-	
 	glViewport(0, 0, (GLint)width, (GLint)height);
 }
 

@@ -70,16 +70,17 @@ namespace KDLCV {
 			glEnd();
 
 			//draw_element(tree->getRootSegment(), pose);
-			// std::cout << "-" << std::endl;
+
 			KDL::JntArray jnt_array(pose.size());
-			// std::cout << "+" << std::endl;
+
 			for (unsigned int i = 0; i < pose.size(); ++i) jnt_array(i) = pose[i];
 
+#if 0
 			std::cout << "qkdltreewidget, pose: ";
 			for (unsigned int i = 0; i < pose.size(); ++i) 
 				std::cout << pose[i] << " ";
 			std::cout << std::endl;
-
+#endif
 
 			//std::cout << "=" << std::endl;
 			KDL::SegmentMap segment_map = m_Tree->getSegments();
