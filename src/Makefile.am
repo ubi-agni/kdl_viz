@@ -10,7 +10,7 @@ include_HEADERS = \
   kdlchainview.h \
   kdltreeview.h
 
-libkdlview_la_LDFLAGS = $(GL_LIBS) $(KDL_LIBS) $(AM_LIBS)
+libkdlview_la_LIBADD = $(GLU_LIBS) $(KDL_LIBS) $(AM_LIBS)
 libkdlview_la_CXXFLAGS = $(GL_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS)
 libkdlview_la_CPPFLAGS = $(GL_CPPFLAGS) $(KDL_CPPFLAGS) $(AM_CPPFLAGS)
 
@@ -30,8 +30,7 @@ libqkdlview_la_SOURCES = \
   qkdltreeview.h
 
 libqkdlview_la_CXXFLAGS = $(QT_CFLAGS) $(KDL_CFLAGS) $(AM_CXXFLAGS) $(GLU_CFLAGS)
-libqkdlview_la_LDFLAGS = $(QT_LIBS) $(KDL_LDFLAGS) $(AM_LDFLAGS) $(GLU_LIBS)
-libqkdlview_la_LIBADD = libkdlview.la
+libqkdlview_la_LIBADD = libkdlview.la $(QT_LIBS) $(GLU_LIBS)
 
 include_HEADERS += \
   qkdlchainwidget.h \

@@ -7,7 +7,7 @@
 
 #include <GL/gl.h>
 
-//#include <iostream>
+#include <iostream>
 
 namespace KDLCV {
 	/**
@@ -85,11 +85,13 @@ namespace KDLCV {
 			//std::cout << "=" << std::endl;
 			KDL::SegmentMap segment_map = m_Tree->getSegments();
 			//std::cout << "fjw afja" << std::endl;
-			for (KDL::SegmentMap::const_iterator it = segment_map.begin(); it != segment_map.end(); ++it) {
+			for (KDL::SegmentMap::const_iterator it = segment_map.begin(); 
+				  it != segment_map.end(); ++it) {
 				// std::cout << "qkdtreewidget: current: " << (*it).first << std::endl;
 				// If we are the root, we don't draw anything
 				if ((*it).first == "root") continue; 
-				if ((*it).second.parent == m_Tree->getSegments().end()) { std::cout << "root!!!!" << std::endl; continue; }
+				if ((*it).second.parent == m_Tree->getSegments().end()) 
+				{ std::cout << "root!!!!" << std::endl; continue; }
 
 				// solve for position of element and its parents position, so we
 				// can draw a line..
